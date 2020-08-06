@@ -59,7 +59,7 @@ const renderBoxes =()=> {
   // })
 
   for (let i=0; i < count; i++){
-    boxArray.push(<Box/>)
+    boxArray.push(<Box boxId={i}/>)
   }
 
 
