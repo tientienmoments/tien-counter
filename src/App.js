@@ -5,10 +5,13 @@ import {useDispatch, useSelector} from "react-redux"
 // import Box from './components/Box'
 
 function App() {
+// const boxColor =boxColors[index]
+
+
 const state = useSelector(state => state);
 const boxColors = useSelector(state => state.boxColors);
 
-// const boxColor =boxColors[index]
+
 
 
 const dispatch = useDispatch()
@@ -43,7 +46,7 @@ const renderBoxes =()=> {
         }}
         className="box"
       >
-        <h1>Each box color</h1>
+        <h1>Enter your single color</h1>
         <input onChange={e =>
             dispatch({
               type: "CHANGE_SPECIFIC_BOX",
