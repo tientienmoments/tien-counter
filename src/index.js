@@ -32,16 +32,16 @@ function reducer(state = initialState, action) {
     case "COLOR":
       state.color = action.payload.color
       break;
-    // case "EACH_BOX":
-
-    //   const boxColors = state.boxColors
-    //   boxColors[action.payload.index] = action.payload.color
-    //   break;
-    case "CHANGE_SPECIFIC_BOX":
+    case "EACH_BOX":
 
       const boxColors = state.boxColors
       boxColors[action.payload.index] = action.payload.color
       break;
+    // case "CHANGE_SPECIFIC_BOX":
+
+    //   const boxColors = state.boxColors
+    //   boxColors[action.payload.index] = action.payload.color
+    //   break;
     default:
       return state;
   }

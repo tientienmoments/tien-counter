@@ -2,14 +2,14 @@ import React from 'react';
 
 import './App.css';
 import {useDispatch, useSelector} from "react-redux"
-// import Box from './components/Box'
+import Box from './components/Box'
 
 function App() {
 // const boxColor =boxColors[index]
 
 
-const state = useSelector(state => state);
-const boxColors = useSelector(state => state.boxColors);
+// const state = useSelector(state => state);
+// const boxColors = useSelector(state => state.boxColors);
 
 
 
@@ -36,31 +36,31 @@ const changeColor = (e) =>{
 
 const renderBoxes =()=> {
   let boxArray =[]
-  Array.from(Array(state.count)).forEach((x,i)=>{
-    const boxColor =boxColors[i] || state.color;
-    boxArray.push(
-      <div
-      key={i}
-        style={{
-          backgroundColor: boxColor
-        }}
-        className="box"
-      >
-        <h1>Enter your single color</h1>
-        <input onChange={e =>
-            dispatch({
-              type: "CHANGE_SPECIFIC_BOX",
-              payload: { color: e.target.value, index: i }
-            })
-          }></input>
+  // Array.from(Array(state.count)).forEach((x,i)=>{
+  //   const boxColor =boxColors[i] || state.color;
+  //   boxArray.push(
+  //     <div
+  //     key={i}
+  //       style={{
+  //         backgroundColor: boxColor
+  //       }}
+  //       className="box"
+  //     >
+  //       <h1>Enter your single color</h1>
+  //       <input onChange={e =>
+  //           dispatch({
+  //             type: "CHANGE_SPECIFIC_BOX",
+  //             payload: { color: e.target.value, index: i }
+  //           })
+  //         }></input>
 
-      </div>
-    )
-  })
+  //     </div>
+  //   )
+  // })
 
-  // for (let i=0; i < count; i++){
-  //   boxArray.push(<Box index={index}/>)
-  // }
+  for (let i=0; i < count; i++){
+    boxArray.push(<Box/>)
+  }
 
 
   return boxArray  

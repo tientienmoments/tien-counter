@@ -1,31 +1,34 @@
-// import React from 'react'
-// import { useSelector } from 'react-redux'
-// import { useDispatch } from "react-redux"
+import React from 'react'
+import { useSelector } from 'react-redux'
+import { useDispatch } from "react-redux"
 
-// export default function Box(index) {
-//     const state = useSelector(state => state);
-    
+export default function Box() {    //index
+ 
+const state = useSelector(state => state);
+const boxColors = useSelector(state => state.boxColors);
+const boxColor =boxColors[index]
 
-//     const color = useSelector((state) => state.color)
-   
-//     const dispatch = useDispatch()
-//         const boxColors = useSelector(state => state.boxColors);
-//         const boxColor =boxColors[index]
-    
+    const color = useSelector((state) => state.color)
+       const dispatch = useDispatch()
 
-//             return (    
-//                 <div>
-//                 <h4 className="box" style={{backgroundColor: boxColor? boxColor: color}}></h4> 
+//         
 
-//                 <input type="text" onChange={e =>
-//                     dispatch({
-//                       type: "EACH_BOX",
-//                       payload: { color: e.target.value, index: index }
-//                     })
-//                   }/> 
-                 
-        
+//{{backgroundColor: boxColor? boxColor: color}}
+            return (    
+                <div className="box" style={{backgroundColor:color}}>
+                <h4 ></h4> 
 
-//         </div>
-//     )
-// }
+                <input 
+                type="text" 
+                onChange={e =>
+                    dispatch({
+                      type: "EACH_BOX",
+                      payload: { color: e.target.value, index: boxColor}
+                    })}
+                /> 
+
+
+
+        </div>
+    )
+}
