@@ -9,7 +9,7 @@ import { createStore } from 'redux'
 const initialState = {
   count: 0,
   color: "blue",
-  boxColors: [null]
+  boxColors: []
 }
 function reducer(state = initialState, action) {
 
@@ -17,6 +17,7 @@ function reducer(state = initialState, action) {
   switch (action.type) {
     case "INCREMENT":
       state.count++;
+      state.boxColors.push(state.color)
       break;
     case "DECREMENT":
       if (state.count <= 0) {
@@ -24,6 +25,7 @@ function reducer(state = initialState, action) {
         break;
       }
       state.count--
+      state.boxColors.pop()
       break;
     case "RESET":
       state.count = 0
@@ -31,6 +33,8 @@ function reducer(state = initialState, action) {
 
     case "COLOR":
       state.color = action.payload.color
+      state.boxColors = state.boxColors.map((boxColors)=>action.payload.color)
+
       break;
     case "EACH_BOX":
 

@@ -5,30 +5,30 @@ import { useDispatch } from "react-redux"
 export default function Box(props) {    //index
  
 const state = useSelector(state => state);
-// const boxColors = useSelector(state => state.boxColors);
-// const boxColor =boxColors[index]
+const boxColors = useSelector(state => state.boxColors);
+const boxColor =boxColors[props.boxId]
 
     const color = useSelector((state) => state.color)
        const dispatch = useDispatch()
 
     const handleChange = (e)=>{
         dispatch({
+    
             type: "EACH_BOX",
-            payload: { color: e.target.value, index: boxColor}
-          })}
-    }
+            payload: { color: e.target.value, index: props.boxId}
+          })};
 
 //         
 
 //{{backgroundColor: boxColor? boxColor: color}}
             return (    
-                <div className="box" style={{backgroundColor:color}}>
+                <div className="box" style={{backgroundColor: boxColor}}>
                 <h4 ></h4> 
 
                 <input 
                 type="text" 
 
-                onChange={handleChange()}
+                onChange={handleChange}
                 /> 
 
 
